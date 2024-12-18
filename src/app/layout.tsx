@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+//import Navbar from "@/components/Navbar";
 import Loading from "./loading";
 import { Toaster } from "@/components/ui/toaster";
 import WelcomeToast from "@/components/WelcomeToaster";
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <Suspense fallback={<Loading />}>
-          <Navbar />
+          {/*<Navbar />*/}
           <div className="pt-16">{children}</div>
           <WelcomeToast />
           <Toaster />
