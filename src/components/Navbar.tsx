@@ -19,23 +19,17 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     setIsMounted(true);
 
-    // Check for saved theme preference or system preference
-    const savedTheme =
-      typeof window !== "undefined"
-        ? (localStorage.getItem("theme") as "light" | "dark")
-        : null;
-
-    const prefersDarkMode =
-      typeof window !== "undefined"
-        ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        : false;
-
-    // Set initial theme
-    const initialTheme = savedTheme || (prefersDarkMode ? "dark" : "light");
-    setTheme(initialTheme);
-
-    // Apply theme to document after mount (ensure this only happens on the client)
     if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") as
+        | "light"
+        | "dark"
+        | null;
+      const prefersDarkMode = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      const initialTheme = savedTheme || (prefersDarkMode ? "dark" : "light");
+      setTheme(initialTheme);
       applyTheme(initialTheme);
     }
   }, []);
@@ -54,13 +48,11 @@ const Navbar: React.FC = () => {
   // Function to apply theme to document
   const applyTheme = (selectedTheme: "light" | "dark") => {
     if (typeof document !== "undefined") {
-      if (selectedTheme === "dark") {
-        document.documentElement.classList.add("dark");
-        document.documentElement.style.colorScheme = "dark";
-      } else {
-        document.documentElement.classList.remove("dark");
-        document.documentElement.style.colorScheme = "light";
-      }
+      document.documentElement.classList.toggle(
+        "dark",
+        selectedTheme === "dark"
+      );
+      document.documentElement.style.colorScheme = selectedTheme;
     }
   };
 
@@ -75,7 +67,6 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Only render theme-specific elements when mounted on the client
   if (!isMounted) {
     return null; // Prevent rendering on server-side until mounted
   }
@@ -160,8 +151,7 @@ const Navbar: React.FC = () => {
                     href={item.href}
                     onClick={() => {
                       toggleMenu();
-                      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                      item.onClick && item.onClick();
+                      if (item.onClick) item.onClick();
                     }}
                     className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300"
                   >
