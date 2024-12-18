@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="flex justify-center w-full order-2 md:order-1">
           <div className="w-full flex justify-center items-center">
             <LottiePlayer
-              src="/home/Search.json"
+              src="/home/Notifi.json"
               className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-contain"
               loop
               autoplay
