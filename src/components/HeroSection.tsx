@@ -2,49 +2,22 @@
 
 import React from "react";
 import { Github, Instagram, ArrowRight, Download } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
 import { Player } from "@lottiefiles/react-lottie-player";
-import "swiper/css";
-import "swiper/css/pagination";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-8 sm:py-12 md:py-16 ">
       <div className="max-w-6xl w-full mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-        {/* Swiper Image and Lottie Container */}
+        {/* Lottie Animation */}
         <div className="flex justify-center w-full order-2 md:order-1">
-          <Swiper
-            modules={[Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{
-              clickable: true,
-              el: ".custom-pagination",
-              renderBullet: function (index, className) {
-                return `<span class="${className} w-2 h-2 mx-1 bg-white/50 rounded-full"></span>`;
-              },
-            }}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px]"
-          >
-            {/* Slide 1: Lottie Animation */}
-            <SwiperSlide>
-              <div className="w-full flex justify-center items-center">
-                <Player
-                  src="/home/Search.json"
-                  className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-contain"
-                  loop
-                  autoplay
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <div className="custom-pagination absolute bottom-2 left-1/2 transform -translate-x-1/2 flex"></div>
+          <div className="w-full flex justify-center items-center">
+            <Player
+              src="/home/Search.json"
+              className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-contain"
+              loop
+              autoplay
+            />
+          </div>
         </div>
 
         {/* Text Content */}
@@ -78,7 +51,6 @@ export default function HeroSection() {
             <span className="text-blue-500 animate-text-shimmer"> JR</span>
           </h1>
 
-          {/* Rest of the component remains the same */}
           <p className=" text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
             Com cada linha de código e cada projeto concluído, reforçamos nosso
             compromisso com a excelência técnica e a inovação contínua.
