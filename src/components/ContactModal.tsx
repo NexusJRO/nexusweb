@@ -100,10 +100,10 @@ export function ContactModal() {
 
       <DialogContent className="sm:max-w-[600px] p-8 rounded-2xl">
         <DialogHeader className="text-center">
-          <DialogTitle className="text-3xl font-bold text-gray-900 mb-4">
+          <DialogTitle className="text-3xl font-bold  mb-4">
             Solicite uma Consulta
           </DialogTitle>
-          <DialogDescription className="text-gray-600 mb-6">
+          <DialogDescription className=" mb-6">
             Preencha o formulário abaixo e nossa equipe entrará em contato
           </DialogDescription>
         </DialogHeader>
@@ -115,7 +115,7 @@ export function ContactModal() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">Nome Completo</FormLabel>
+                  <FormLabel>Nome Completo</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Seu nome"
@@ -133,7 +133,7 @@ export function ContactModal() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">E-mail</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -152,9 +152,7 @@ export function ContactModal() {
               name="service"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">
-                    Serviço de Interesse
-                  </FormLabel>
+                  <FormLabel>Serviço de Interesse</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -182,14 +180,12 @@ export function ContactModal() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">
-                    Mensagem (Opcional)
-                  </FormLabel>
+                  <FormLabel>Mensagem (Opcional)</FormLabel>
                   <FormControl>
                     <textarea
                       {...field}
                       placeholder="Detalhes adicionais sobre sua necessidade"
-                      className="w-full p-3 border rounded-lg min-h-[120px] resize-y"
+                      className="w-full p-3 border rounded-lg min-h-[120px] resize-y text-black"
                     />
                   </FormControl>
                   <FormMessage className="text-red-500" />
