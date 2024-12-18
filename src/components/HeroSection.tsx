@@ -1,8 +1,14 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { Github, Instagram, ArrowRight, Download } from "lucide-react";
-import { Player } from "@lottiefiles/react-lottie-player";
+
+// Dynamically import Lottie Player with SSR disabled
+const LottiePlayer = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 export default function HeroSection() {
   return (
@@ -11,7 +17,7 @@ export default function HeroSection() {
         {/* Lottie Animation */}
         <div className="flex justify-center w-full order-2 md:order-1">
           <div className="w-full flex justify-center items-center">
-            <Player
+            <LottiePlayer
               src="/home/Search.json"
               className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-contain"
               loop
