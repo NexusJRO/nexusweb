@@ -68,7 +68,7 @@ export const NexusJrFooter: React.FC = () => {
               {[
                 {
                   icon: Mail,
-                  text: "contato@nexusjr.com.mz",
+                  text: "contato@nexusjrtech.com.mz",
                   href: "mailto:nexus.jrtech@gmail.com",
                 },
                 {

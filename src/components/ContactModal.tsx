@@ -185,7 +185,7 @@ export function ContactModal() {
                     <textarea
                       {...field}
                       placeholder="Detalhes adicionais sobre sua necessidade"
-                      className="w-full p-3 border rounded-lg min-h-[120px] resize-y text-black"
+                      className="w-full p-3 border rounded-lg min-h-[120px] resize-y  bg-transparent"
                     />
                   </FormControl>
                   <FormMessage className="text-red-500" />
